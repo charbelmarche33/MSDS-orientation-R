@@ -25,5 +25,23 @@ even_fibonacci_numbers <- function(max) {
   paste("Sum is", sum)
 }
 
+is.prime <- function(n) n == 2L || all(n %% 2L:ceiling(sqrt(n)) != 0)
+
+largest_prime_factor <- function(number){
+  limit <- sqrt(number)
+  print(limit)
+  prime_factors <- vector()
+  d <- 2
+  while (d < limit) {
+    if (number %% d == 0 & is.prime(d)) {
+      prime_factors <- append(prime_factors, d)
+    }
+    d <- d + 1
+  }
+  paste("Largest factor", tail(prime_factors, n=1))
+}
+
+add_threes_fives(1000)
 even_fibonacci_numbers(4000000)
+largest_prime_factor(600851475143)
 
